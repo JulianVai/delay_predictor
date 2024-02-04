@@ -98,6 +98,19 @@ class DelayModel:
         prediction = self._model.predict(features)
         prediction = prediction.tolist()
         return prediction
+    
+    def save_artifact(
+        self,
+        path: str
+    ) -> None:
+        """
+        Save model to disk.
+
+        Args:
+            path (str): path to save model.
+        """
+        self._model.save_model(path)
+        return
 
     @staticmethod
     def get_period_day(date):
